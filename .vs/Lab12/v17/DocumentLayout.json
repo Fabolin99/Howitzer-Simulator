@@ -1,0 +1,102 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\fabol\\OneDrive\\Escritorio\\Programming\\winter\\inheritance design\\w12\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{B2AD1A6B-78BD-4EFD-99F1-99D23E90C15A}|Lab12.vcxproj|C:\\Users\\fabol\\OneDrive\\Escritorio\\Programming\\winter\\inheritance design\\w12\\simulation.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{B2AD1A6B-78BD-4EFD-99F1-99D23E90C15A}|Lab12.vcxproj|solutionrelative:simulation.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B2AD1A6B-78BD-4EFD-99F1-99D23E90C15A}|Lab12.vcxproj|C:\\Users\\fabol\\OneDrive\\Escritorio\\Programming\\winter\\inheritance design\\w12\\main.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{B2AD1A6B-78BD-4EFD-99F1-99D23E90C15A}|Lab12.vcxproj|solutionrelative:main.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B2AD1A6B-78BD-4EFD-99F1-99D23E90C15A}|Lab12.vcxproj|C:\\Users\\fabol\\OneDrive\\Escritorio\\Programming\\winter\\inheritance design\\w12\\projectile.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{B2AD1A6B-78BD-4EFD-99F1-99D23E90C15A}|Lab12.vcxproj|solutionrelative:projectile.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B2AD1A6B-78BD-4EFD-99F1-99D23E90C15A}|Lab12.vcxproj|C:\\Users\\fabol\\OneDrive\\Escritorio\\Programming\\winter\\inheritance design\\w12\\projectile.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{B2AD1A6B-78BD-4EFD-99F1-99D23E90C15A}|Lab12.vcxproj|solutionrelative:projectile.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B2AD1A6B-78BD-4EFD-99F1-99D23E90C15A}|Lab12.vcxproj|C:\\Users\\fabol\\OneDrive\\Escritorio\\Programming\\winter\\inheritance design\\w12\\howitzer.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{B2AD1A6B-78BD-4EFD-99F1-99D23E90C15A}|Lab12.vcxproj|solutionrelative:howitzer.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 2,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "main.cpp",
+              "DocumentMoniker": "C:\\Users\\fabol\\OneDrive\\Escritorio\\Programming\\winter\\inheritance design\\w12\\main.cpp",
+              "RelativeDocumentMoniker": "main.cpp",
+              "ToolTip": "C:\\Users\\fabol\\OneDrive\\Escritorio\\Programming\\winter\\inheritance design\\w12\\main.cpp",
+              "RelativeToolTip": "main.cpp",
+              "ViewState": "AQIAABAAAAAAAAAAAAAkwBMAAAAuAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2024-04-02T21:14:00.058Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "howitzer.h",
+              "DocumentMoniker": "C:\\Users\\fabol\\OneDrive\\Escritorio\\Programming\\winter\\inheritance design\\w12\\howitzer.h",
+              "RelativeDocumentMoniker": "howitzer.h",
+              "ToolTip": "C:\\Users\\fabol\\OneDrive\\Escritorio\\Programming\\winter\\inheritance design\\w12\\howitzer.h",
+              "RelativeToolTip": "howitzer.h",
+              "ViewState": "AQIAAEoAAAAAAAAAAAAIwFEAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2024-04-02T20:03:35.294Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "simulation.h",
+              "DocumentMoniker": "C:\\Users\\fabol\\OneDrive\\Escritorio\\Programming\\winter\\inheritance design\\w12\\simulation.h",
+              "RelativeDocumentMoniker": "simulation.h",
+              "ToolTip": "C:\\Users\\fabol\\OneDrive\\Escritorio\\Programming\\winter\\inheritance design\\w12\\simulation.h",
+              "RelativeToolTip": "simulation.h",
+              "ViewState": "AQIAAGUAAAAAAAAAAAAkwCQAAABUAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2024-04-02T15:34:48.619Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "projectile.cpp",
+              "DocumentMoniker": "C:\\Users\\fabol\\OneDrive\\Escritorio\\Programming\\winter\\inheritance design\\w12\\projectile.cpp",
+              "RelativeDocumentMoniker": "projectile.cpp",
+              "ToolTip": "C:\\Users\\fabol\\OneDrive\\Escritorio\\Programming\\winter\\inheritance design\\w12\\projectile.cpp",
+              "RelativeToolTip": "projectile.cpp",
+              "ViewState": "AQIAACsAAAAAAAAAAAAIwEAAAAArAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2024-03-30T20:31:44.866Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "projectile.h",
+              "DocumentMoniker": "C:\\Users\\fabol\\OneDrive\\Escritorio\\Programming\\winter\\inheritance design\\w12\\projectile.h",
+              "RelativeDocumentMoniker": "projectile.h",
+              "ToolTip": "C:\\Users\\fabol\\OneDrive\\Escritorio\\Programming\\winter\\inheritance design\\w12\\projectile.h",
+              "RelativeToolTip": "projectile.h",
+              "ViewState": "AQIAAEAAAAAAAAAAAAAIwEwAAAA7AAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2024-04-02T17:51:42.859Z"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
