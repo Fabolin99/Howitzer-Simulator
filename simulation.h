@@ -14,6 +14,7 @@
 #include "projectile.h"
 #include "uiInteract.h"  
 #include "uiDraw.h" 
+#define TIME_INTERVAL 0.5
 
 
 
@@ -24,7 +25,7 @@
 class Simulator
 {
 public:
-    Simulator(const Position& posUpperRight):  ground(posUpperRight) 
+    Simulator(const Position& posUpperRight):  ground(posUpperRight), simulationTime(0.0)
     {
         // reset the game
         howitzer.generatePosition(posUpperRight);
@@ -53,8 +54,13 @@ public:
     {
         ground.draw(gout); // Draw the ground
         howitzer.draw(gout, flightTime); // Draw the howitzer
-        projectile.draw(gout); // Draw the projectile
 
+        // Draw the projectile if it's flying
+        if (projectile.flying())
+        {
+            projectile.draw(gout);
+        }
+      
         displayStatistics();
     }
 
@@ -63,49 +69,43 @@ public:
     {
         howitzer.input(pUI);
 
-        // fire the gun
-        if (!projectile.flying() && pUI->isSpace())
-        {
-            projectile.fire(howitzer.getPosition(), simulationTime, howitzer.getElevation(), howitzer.getMuzzleVelocity());
-        }
-
-        // Advance the simulation time
-        simulationTime += 0.1; // change?
-
-        // End the game when 'q' is pressed
-        if (pUI->isQ())
-            exit(0);
-
-        return howitzer;
-    }
-
-
-    // gameplay
-    void gameplay(const Interface* pUI)
-    {
-        // Handle user input for the howitzer
-        howitzer.input(pUI);
-
-        // Fire the gun if space bar is pressed and the projectile is not already flying
+        // Fire the gun
         if (!projectile.flying() && pUI->isSpace())
         {
             projectile.fire(howitzer.getPosition(), simulationTime, howitzer.getElevation(), howitzer.getMuzzleVelocity());
         }
 
         // Update the simulation time
-        simulationTime += 0.1; // Or use an appropriate time interval
+        simulationTime += TIME_INTERVAL;
 
-        // Advance the projectile if it's flying
-        if (projectile.flying())
+        // Advance the projectile
+        projectile.advance(simulationTime);
+
+        // check if colission
+        if (projectile.getPosition().getMetersY() < ground.getElevationMeters(projectile.getPosition()))
         {
-            projectile.advance(simulationTime);
+            projectile.reset();
         }
 
-        // End the game if 'q' is pressed
+        // check if hit target
+        if (projectile.flying())
+        {
+            if (this->ground.getTarget().getPixelsX() == projectile.getPosition().getPixelsX())
+            {   
+                // Projectile has hit the target
+                std::cout << "Target Hit!\n";
+                projectile.reset();
+                ground.reset(howitzer.getPosition());
+            }
+        }
+
+        // End the game when 'q' is pressed
         if (pUI->isQ())
         {
             exit(0);
         }
+
+        return howitzer;
     }
 
 

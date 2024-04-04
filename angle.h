@@ -82,10 +82,11 @@ public:
 	void setDxDy(double dx, double dy) { radians = normalize(atan2(dx, dy)); }
 	Angle operator+(double degrees) const { return Angle(getDegrees() + degrees); }
 
-	Angle operator-() const {
-		Angle result = *this;
-		result.radians = -result.radians;
-		return result;
+	Angle operator-() const 
+	{
+		Angle aReturn(*this);
+		aReturn.reverse();
+		return aReturn;
 	}
 	
 private:

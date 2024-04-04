@@ -35,9 +35,10 @@ public:
    Acceleration()                       : ddx(0.0), ddy(0.0) { }
    Acceleration(double ddx, double ddy) : ddx(ddx), ddy(ddy) { }
    // extra:
-   Acceleration(const Angle& angle, double magnitude)
-       : ddx(sin(angle.getRadians())* magnitude), ddy(cos(angle.getRadians())* magnitude) { }
-
+   Acceleration(const Angle& angle, double magnitude) : ddx(0.0), ddy(0.0)
+   {
+       set(angle, magnitude);
+   }
 
    // getters
    virtual double getDDX()   const           { return ddx; }
@@ -54,7 +55,9 @@ public:
    // Overload the + operator.
    Acceleration operator+(const Acceleration& rhs) const
    {
-       return Acceleration(this->ddx + rhs.ddx, this->ddy + rhs.ddy);
+       Acceleration aReturn(*this);
+       aReturn.add(rhs);
+       return aReturn;
    }
    
 private:
