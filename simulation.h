@@ -12,11 +12,14 @@
 #include "howitzer.h"
 #include "ground.h"
 #include "projectile.h"
-#include "uiInteract.h"  
+#include "uiInteract.h" 
 #include "uiDraw.h" 
-#define TIME_INTERVAL 0.5
 
-
+ /*********************************************
+   * STATUS
+   * What is the status of the simulator?
+   *********************************************/
+enum Status {READY, FLYING, VICTORY};
 
  /*********************************************
   * Simulation
@@ -25,94 +28,54 @@
 class Simulator
 {
 public:
-    Simulator(const Position& posUpperRight):  ground(posUpperRight), simulationTime(0.0)
+    Simulator(const Position& posUpperRight) : interval(0.5), posUpperRight(posUpperRight), status(READY), simulationTime(0.0), ground(posUpperRight) { reset(); }
+
+    void reset()
     {
-        // reset the game
+        status = READY;
         howitzer.generatePosition(posUpperRight);
-        ground.reset(howitzer.getPosition());
         projectile.reset();
+        ground.reset(howitzer.getPosition());
     }
+   
+    void fire();
 
-    void displayStatistics() const
-    {
-        // Assuming your ogstream object is created correctly elsewhere in your code
-        ogstream gout;
+    void display(ogstream& gout);
 
-        // Set the position to display the statistics
-        gout.setPosition(Position(22000, 17400)); 
+    void advance();
 
-        // Display the statistics
-        gout << "Altitude: " << projectile.getPosition().getMetersY() << "m\n";
-        gout << "Speed: " << projectile.getSpeed() << "m/s\n";
-        gout << "Distance: " << projectile.getFlightDistance() << "m\n";
-        gout << "Hang Time: " << projectile.getFlightTime() << "s\n";
+    bool input(const Interface* pUI);
 
-    }
+    // configure the simulator
 
+    void setInterval(double interval) { this->interval = interval; }
 
-    void draw(ogstream& gout) const
-    {
-        ground.draw(gout); // Draw the ground
-        howitzer.draw(gout, flightTime); // Draw the howitzer
-
-        // Draw the projectile if it's flying
-        if (projectile.flying())
-        {
-            projectile.draw(gout);
-        }
-      
-        displayStatistics();
-    }
-
-    // input 
-    Howitzer input(const Interface* pUI)
-    {
-        howitzer.input(pUI);
-
-        // Fire the gun
-        if (!projectile.flying() && pUI->isSpace())
-        {
-            projectile.fire(howitzer.getPosition(), simulationTime, howitzer.getElevation(), howitzer.getMuzzleVelocity());
-        }
-
-        // Update the simulation time
-        simulationTime += TIME_INTERVAL;
-
-        // Advance the projectile
-        projectile.advance(simulationTime);
-
-        // check if colission
-        if (projectile.getPosition().getMetersY() < ground.getElevationMeters(projectile.getPosition()))
-        {
-            projectile.reset();
-        }
-
-        // check if hit target
-        if (projectile.flying())
-        {
-            if (this->ground.getTarget().getPixelsX() == projectile.getPosition().getPixelsX())
-            {   
-                // Projectile has hit the target
-                std::cout << "Target Hit!\n";
-                projectile.reset();
-                ground.reset(howitzer.getPosition());
-            }
-        }
-
-        // End the game when 'q' is pressed
-        if (pUI->isQ())
-        {
-            exit(0);
-        }
-
-        return howitzer;
-    }
+    void setMass(double mass) { projectile.setMass(mass); }
+    void setDiameter(double diameter) { projectile.setRadius(diameter / 2.0);  }
 
 
 private:
+    // did projectile hit the target?
+    bool hitTarget() const
+    {
+        if (!projectile.flying())
+            return false;
+        return abs(projectile.getPosition().getPixelsX() - ground.getTarget().getPixelsX()) <= 5.0;
+    }
+
+    double getHeightMeters(const Position& posProjectile) const
+    {
+        double altitudeProjectile = posProjectile.getMetersY();
+        double altitudeGround = ground.getElevationMeters(posProjectile);
+        double heighMeters = altitudeProjectile - altitudeGround;
+        return heighMeters;
+    }
+
     Howitzer howitzer;
     Ground ground;
-    double flightTime;
+    Position posUpperRight;
+    Status status = READY;
+    double interval;
     double simulationTime;
     Projectile projectile;
 };

@@ -72,31 +72,6 @@ class Howitzer
       // get the elevation
       const Angle & getElevation() const { return elevation; }
 
-      // extra:
-
-      void input(const Interface* pUI) {
-          // Rotate right
-          if (pUI->isRight()) {
-              rotate(0.05);
-          }
-
-          // Rotate left
-          if (pUI->isLeft()) {
-              rotate(-0.05);
-          }
-
-          // Raise
-          if (pUI->isUp()) {
-              raise(0.03);
-          }
-
-          // Lower
-          if (pUI->isDown()) { // this is wrong
-              raise(-0.03);
-          }
-      }
-
-  
    private:
       Position position;      // initial position of the projectile
       double muzzleVelocity;  // muzzle velocity, defaults to 827.0 m/s

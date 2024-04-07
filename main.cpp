@@ -25,17 +25,20 @@ using namespace std;
  **************************************/
 void callBack(const Interface* pUI, void* p)
 {
+    ogstream gout;
    // the first step is to cast the void pointer into a simulator object. This
    // is the first step of every single callback function in OpenGL. 
    Simulator* pSim = (Simulator*)p;
 
-   ogstream gout;
- 
    // take input
-   Howitzer howitzer = pSim->input(pUI);
+   if (!pSim->input(pUI))
+       exit(0);
 
-   //  draw everything
-   pSim->draw(gout);   
+    // perform gameplay
+   pSim->advance();
+
+   // draw everything
+   pSim->display(gout);
 }
 
 double Position::metersFromPixels = 40.0;

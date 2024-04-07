@@ -44,6 +44,21 @@ public:
        radius = DEFAULT_PROJECTILE_RADIUS;
    }
 
+   // extra:
+   bool hasCollided() const { return collided; }
+
+   // Let the shell know it has colided with something.
+   void collision() { collided = true; }
+
+   // True if the shell has been fires without being reset, false otherwise.
+   bool hasFired() const { return isFired; }
+
+   void fired() { isFired = true; }
+
+
+
+
+
    void draw(ogstream& gout) const
    {
        for (auto it = flightPath.cbegin(); it != flightPath.cend(); ++it)
@@ -91,4 +106,7 @@ private:
    double mass;           // weight of the M795 projectile. Defaults to 46.7 kg
    double radius;         // radius of M795 projectile. Defaults to 0.077545 m
    std::list<PositionVelocityTime> flightPath;
+   bool collided = false; // extra
+   bool isFired = false;
+
 };
